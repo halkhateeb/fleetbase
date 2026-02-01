@@ -219,24 +219,30 @@ Fleetbase offers a few open sourced apps which are built on Fleetbase which can 
 
 Comprehensive documentation is available to help you get the most out of Fleetbase:
 
-### Core Documentation
+### 🚀 Getting Started
+- **[QUICKSTART.md](QUICKSTART.md)** - Get up and running in 5 minutes
 - **[Official Documentation](https://docs.fleetbase.io/)** - Complete user and developer guides
+- **[Installation Guide](https://docs.fleetbase.io/getting-started/install)** - Detailed installation instructions
+
+### 🏗️ Architecture & Development
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - System architecture and design patterns
-- **[DEVELOPMENT.md](DEVELOPMENT.md)** - Local development setup and guidelines
-- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment guides (Docker, AWS, Kubernetes)
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute to Fleetbase
-- **[TRANSLATING.md](TRANSLATING.md)** - Translation and internationalization guide
+- **[DEVELOPMENT.md](DEVELOPMENT.md)** - Local development setup and coding guidelines
+- **[TESTING.md](TESTING.md)** - Testing strategies and best practices
 
-### Developer Resources
-- **[API Documentation](https://docs.fleetbase.io/api)** - RESTful API reference
+### 🚀 Deployment
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment guides (Docker, AWS, Kubernetes, Manual)
+- **[AWS Deployment](https://docs.fleetbase.io/category/deploying/aws)** - One-click AWS deployment
+
+### 🔌 API & Integration
+- **[API_REFERENCE.md](API_REFERENCE.md)** - Complete REST API documentation
+- **[API Documentation](https://docs.fleetbase.io/api)** - Interactive API reference
+- **[Fleetbase CLI](https://www.npmjs.com/package/@fleetbase/cli)** - Command-line tools
 - **[Extension Development](https://docs.fleetbase.io/developers/building-an-extension)** - Build custom extensions
-- **[Fleetbase CLI](https://www.npmjs.com/package/@fleetbase/cli)** - Command-line tools for extension management
 
-### Getting Started Guides
-1. **[Quick Start](https://docs.fleetbase.io/getting-started/quick-start)** - Get up and running in minutes
-2. **[Installation Guide](https://docs.fleetbase.io/getting-started/install)** - Detailed installation instructions
-3. **[Configuration](https://docs.fleetbase.io/getting-started/configuration)** - Configure your Fleetbase instance
-4. **[First Steps](https://docs.fleetbase.io/getting-started/first-steps)** - Your first orders and fleet setup
+### 🤝 Contributing
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
+- **[TRANSLATING.md](TRANSLATING.md)** - Translation and internationalization guide
+- **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** - Community code of conduct
 
 ## 🌍 Internationalization
 
