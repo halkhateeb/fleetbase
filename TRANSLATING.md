@@ -97,4 +97,116 @@ Here is a list of the primary repositories that accept translation contributions
 [7]: https://github.com/fleetbase/ledger
 [8]: https://github.com/fleetbase/registry-bridge
 
+## Language-Specific Guidelines
+
+### Arabic Translation Guidelines
+
+When translating to Arabic (`ar-ae.yaml`), please keep these best practices in mind:
+
+#### 1. **Formal vs. Informal Language**
+- Use formal Arabic (Modern Standard Arabic - MSA) for professional contexts
+- Maintain consistency in addressing the user (second person formal)
+
+#### 2. **Technical Terms**
+- Some technical terms can be kept in English if commonly used (e.g., "API", "Dashboard")
+- When translating technical terms, use widely accepted Arabic equivalents
+- Example: "Orders" → "الطلبات" (al-talabat), "Drivers" → "السائقون" (al-sa'iqun)
+
+#### 3. **Text Direction (RTL)**
+- Arabic is a right-to-left (RTL) language
+- The Fleetbase console automatically applies RTL styling when Arabic is selected
+- Numbers, dates, and code snippets will remain left-to-right (LTR) within RTL text
+
+#### 4. **Punctuation**
+- Use Arabic punctuation marks: ، (Arabic comma) instead of ,
+- Use Arabic question mark: ؟ instead of ?
+- Keep parentheses and brackets as they are or mirror them: ) ( becomes ( )
+
+#### 5. **Pluralization**
+- Arabic has complex plural rules (singular, dual, plural)
+- When using placeholders like `{count}`, ensure the Arabic text accommodates different plural forms
+- Example: `delete-selected-count: حذف {count} المحدد` (adjust based on count)
+
+#### 6. **Gender**
+- Arabic nouns and adjectives have gender
+- Choose the appropriate gender form based on the context
+- For generic terms, use masculine form (default in Arabic) or use gender-neutral phrasing when possible
+
+#### 7. **Font Recommendations**
+The console uses optimized Arabic fonts automatically when Arabic is selected:
+- **Tajawal** - Modern, clean sans-serif
+- **Cairo** - Geometric sans-serif
+- **Noto Sans Arabic** - Fallback font
+
+#### 8. **Testing Your Translation**
+After translating to Arabic:
+1. Switch the console to Arabic language
+2. Verify that all text displays correctly
+3. Check for any text overflow or layout issues
+4. Ensure buttons and UI elements have enough space
+5. Verify that RTL layout works correctly in all pages
+
+### Persian (Farsi) Translation Guidelines
+
+Similar to Arabic, Persian (`fa-ir.yaml`) is also RTL. Follow similar guidelines with these additions:
+
+1. **Persian-Specific Characters**: Use Persian numbers (۰۱۲۳۴۵۶۷۸۹) where appropriate
+2. **Vocabulary**: Persian has different vocabulary than Arabic despite using the same script
+3. **Font**: The console uses Vazir and Samim fonts optimized for Persian
+
+### Chinese Translation Guidelines
+
+When translating to Chinese (`zh-cn.yaml`):
+
+1. **Simplified vs. Traditional**: Use Simplified Chinese for `zh-cn`
+2. **Tone**: Maintain professional and concise language
+3. **Technical Terms**: Many technical terms are transliterated or kept in English
+4. **Length**: Chinese text is typically shorter than English, adjust UI accordingly
+
+### Spanish Translation Guidelines
+
+We support both European Spanish (`es-es.yaml`) and Mexican Spanish (`es-mx.yaml`):
+
+1. **Regional Differences**: 
+   - Spain Spanish uses "vosotros" form
+   - Mexican Spanish uses "ustedes" form
+2. **Vocabulary**: Some words differ between regions (e.g., "ordenador" vs "computadora")
+3. **Formality**: Maintain formal register using "usted" form
+
+## Translation Quality Checklist
+
+Before submitting your translation, ensure:
+
+- [ ] All keys from `en-us.yaml` are present
+- [ ] No translation values are empty (unless intentionally left blank)
+- [ ] Placeholders like `{count}`, `{name}` are preserved
+- [ ] Text fits in UI elements (test if possible)
+- [ ] Consistent terminology throughout
+- [ ] Grammar and spelling are correct
+- [ ] Punctuation follows language conventions
+- [ ] No machine translation artifacts
+- [ ] Technical terms are accurate
+- [ ] Context-appropriate formality level
+
+## Translation Tools
+
+### Recommended Tools
+- **YAML Editor**: Use a proper YAML editor to avoid formatting errors
+- **CAT Tools**: Consider using translation memory tools for consistency
+- **Spell Checkers**: Use language-specific spell checkers
+
+### Validation
+Run the translation linter before submitting:
+
+```bash
+cd console
+npm run lint:translations
+```
+
+This will check for:
+- Missing keys
+- Invalid YAML syntax
+- Malformed placeholders
+- Encoding issues
+
 Thank you again for your contribution to the Fleetbase community!

@@ -69,9 +69,10 @@ cd fleetbase && ./scripts/docker-install.sh
   - [Deploy on AWS](#-deploy-on-aws-in-one-click)
   - [Extensions](#-extensions)
   - [Apps](#-apps)
+  - [Documentation](#-documentation)
+  - [Internationalization](#-internationalization)
   - [Roadmap](#-roadmap)
   - [Bugs and Feature Requests](#-bugs-and--feature-requests)
-  - [Documentation](#-documentation)
   - [Contributing](#-contributing)
   - [Community](#-community)
   - [Creators](#-creators)
@@ -213,6 +214,63 @@ Fleetbase offers a few open sourced apps which are built on Fleetbase which can 
   <li><a href="https://github.com/fleetbase/storefront-app">Storefront App</a>: Fleetbase based ecommerce/on-demand app for launching your very own shop or marketplace to Apple or Android playstore.</li>
   <li><a href="https://github.com/fleetbase/navigator-app">Navigator App</a>: Fleetbase based driver app which can be used for drivers to manage and update order, additionally provides real time driver location which can be viewed in the Fleetbase Console.</li>
 </ul>
+
+## 📚 Documentation
+
+Comprehensive documentation is available to help you get the most out of Fleetbase:
+
+### 🚀 Getting Started
+- **[QUICKSTART.md](QUICKSTART.md)** - Get up and running in 5 minutes
+- **[Official Documentation](https://docs.fleetbase.io/)** - Complete user and developer guides
+- **[Installation Guide](https://docs.fleetbase.io/getting-started/install)** - Detailed installation instructions
+
+### 🏗️ Architecture & Development
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - System architecture and design patterns
+- **[DEVELOPMENT.md](DEVELOPMENT.md)** - Local development setup and coding guidelines
+- **[TESTING.md](TESTING.md)** - Testing strategies and best practices
+
+### 🚀 Deployment
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment guides (Docker, AWS, Kubernetes, Manual)
+- **[AWS Deployment](https://docs.fleetbase.io/category/deploying/aws)** - One-click AWS deployment
+
+### 🔌 API & Integration
+- **[API_REFERENCE.md](API_REFERENCE.md)** - Complete REST API documentation
+- **[API Documentation](https://docs.fleetbase.io/api)** - Interactive API reference
+- **[Fleetbase CLI](https://www.npmjs.com/package/@fleetbase/cli)** - Command-line tools
+- **[Extension Development](https://docs.fleetbase.io/developers/building-an-extension)** - Build custom extensions
+
+### 🤝 Contributing
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
+- **[TRANSLATING.md](TRANSLATING.md)** - Translation and internationalization guide
+- **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** - Community code of conduct
+
+## 🌍 Internationalization
+
+Fleetbase supports **12+ languages** out of the box, with full right-to-left (RTL) support for Arabic and Persian:
+
+### Supported Languages
+- 🇺🇸 English (US)
+- 🇸🇦 Arabic (UAE) - with RTL support
+- 🇨🇳 Chinese (Simplified)
+- 🇪🇸 Spanish (Spain)
+- 🇲🇽 Spanish (Mexico)
+- 🇫🇷 French
+- 🇧🇷 Portuguese (Brazil)
+- 🇷🇺 Russian
+- 🇻🇳 Vietnamese
+- 🇮🇷 Persian (Farsi) - with RTL support
+- 🇧🇬 Bulgarian
+- 🇲🇳 Mongolian
+
+### Contributing Translations
+Want to add support for your language? Check out our [Translation Guide](TRANSLATING.md) to learn how to contribute translations to Fleetbase and its extensions.
+
+### RTL Language Support
+Fleetbase automatically applies right-to-left (RTL) layout when Arabic or Persian is selected, including:
+- Mirrored UI layouts
+- Proper text direction
+- Optimized fonts (Tajawal for Arabic, Vazir for Persian)
+- Correctly aligned form inputs and buttons
 
 ## 🛣️ Roadmap
 1.  **Inventory and Warehouse Management** ~ Pallet will be Fleetbase’s first official extension for WMS & Inventory.
