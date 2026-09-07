@@ -2,12 +2,12 @@
 
 ---
 ## Highlights
-Fleetbase `0.7.58` prepares the root release for the Fleet-Ops nested resource expansion fix. This release keeps Order, Driver, Vehicle, and Fleet API responses safer when parent requests include expanded relations that do not belong to nested Fleet-Ops resources.
+Fleetbase `0.7.58` updates Fleet-Ops to `0.6.64` with nested resource expansion hardening. This release keeps Order, Driver, Vehicle, and Fleet API responses safer when parent requests include expanded relations that do not belong to nested Fleet-Ops resources.
 
 ---
 ## Component Versions
 - `console`: `0.7.58`
-- `fleetops`: pending `0.6.64` publication
+- `fleetops`: `0.6.64`
 
 ---
 ## Fleet-Ops
@@ -20,7 +20,9 @@ Fleetbase `0.7.58` prepares the root release for the Fleet-Ops nested resource e
 ## Console and API Packages
 - Bumped the root Docker image version to `0.7.58`.
 - Bumped Console to `0.7.58`.
-- Fleet-Ops package dependencies and the Fleet-Ops submodule will be updated after Fleet-Ops `0.6.64` is published.
+- Updated Console package dependency for `@fleetbase/fleetops-engine` `^0.6.64`.
+- Updated API package dependency for `fleetbase/fleetops-api` `^0.6.64`.
+- Updated the Fleet-Ops submodule to `v0.6.64`.
 
 ---
 ## Bug Fixes

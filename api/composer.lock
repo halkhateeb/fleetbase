@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81278a981aaa4c22fc743050548e7455",
+    "content-hash": "87ccd581a406b155afb93ba8dc47cbaa",
     "packages": [
         {
             "name": "appstract/laravel-opcache",
@@ -2552,16 +2552,16 @@
         },
         {
             "name": "fleetbase/fleetops-api",
-            "version": "0.6.63",
+            "version": "0.6.64",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fleetbase/fleetops.git",
-                "reference": "e3b8cf9833e9d0fb245f5d339a970e3ef0e36985"
+                "reference": "4008beafe7274555de088738d44e2fb33fd2908c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fleetbase/fleetops/zipball/e3b8cf9833e9d0fb245f5d339a970e3ef0e36985",
-                "reference": "e3b8cf9833e9d0fb245f5d339a970e3ef0e36985",
+                "url": "https://api.github.com/repos/fleetbase/fleetops/zipball/4008beafe7274555de088738d44e2fb33fd2908c",
+                "reference": "4008beafe7274555de088738d44e2fb33fd2908c",
                 "shasum": ""
             },
             "require": {
@@ -2638,9 +2638,9 @@
             ],
             "support": {
                 "issues": "https://github.com/fleetbase/fleetops/issues",
-                "source": "https://github.com/fleetbase/fleetops/tree/v0.6.63"
+                "source": "https://github.com/fleetbase/fleetops/tree/v0.6.64"
             },
-            "time": "2026-09-06T05:59:27+00:00"
+            "time": "2026-09-07T12:06:12+00:00"
         },
         {
             "name": "fleetbase/laravel-mysql-spatial",
