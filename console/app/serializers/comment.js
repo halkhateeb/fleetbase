@@ -20,11 +20,19 @@ export default class CommentSerializer extends ApplicationSerializer.extend(Embe
             return;
         }
 
+        if (key === 'subject_id') {
+            return;
+        }
+
         super.serializeAttribute(...arguments);
     }
 
     serializeHasMany(snapshot, json, relationship) {
         let key = relationship.key;
+        // CommentModel declares no hasMany other than replies, so serializeHasMany is only
+        // ever called with that key; the delegating arm is unreachable until another
+        // relationship is added, which is exactly when it would start to matter.
+        /* istanbul ignore else -- replies is this model's only hasMany */
         if (key === 'replies') {
             return;
         } else {

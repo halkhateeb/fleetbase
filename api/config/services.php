@@ -47,6 +47,11 @@ return [
     'callpromn' => [
         'api_key' => env('CALLPROMN_API_KEY', ''),
         'from' => env('CALLPROMN_FROM', ''),
-        'base_url' => env('CALLPROMN_BASE_URL', 'https://api.messagepro.mn' ),
+        'base_url' => env('CALLPROMN_BASE_URL', 'https://api-text.callpro.mn/v1/sms'),
     ],
+
+    'google_maps' => [
+        'locale' => env('GOOGLE_MAPS_LOCALE', 'us'),
+        'api_key' => env('GOOGLE_MAPS_API_KEY'),
+    ]
 ];

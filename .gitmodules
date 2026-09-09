@@ -33,12 +33,15 @@
 	path = packages/fleetops-data
 	url = git@github.com:fleetbase/fleetops-data.git
 	branch = main
-[submodule "docs"]
-	path = docs
-	url = git@github.com:fleetbase/docs.git
 [submodule "packages/registry-bridge"]
 	path = packages/registry-bridge
 	url = git@github.com:fleetbase/registry-bridge.git
 [submodule "packages/ledger"]
 	path = packages/ledger
 	url = git@github.com:fleetbase/ledger.git
+[submodule "packages/customer-portal"]
+	path = packages/customer-portal
+	url = git@github.com:fleetbase/customer-portal.git
+[submodule "packages/ai"]
+	path = packages/ai
+	url = git@github.com:fleetbase/ai.git

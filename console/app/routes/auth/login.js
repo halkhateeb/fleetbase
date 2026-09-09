@@ -1,9 +1,17 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
+import removeBootLoader from '../../utils/remove-boot-loader';
 
 export default class AuthLoginRoute extends Route {
     @service session;
     @service universe;
+    @service installation;
+    @service router;
+
+    @action activate() {
+        removeBootLoader();
+    }
 
     /**
      * If user is authentication redirect to console.
@@ -11,7 +19,17 @@ export default class AuthLoginRoute extends Route {
      * @memberof AuthLoginRoute
      * @void
      */
-    beforeModel(transition) {
+    async beforeModel(transition) {
+        const { notConfigured, shouldOnboard, transition: installTransition } = await this.installation.checkOnboarding();
+
+        if (notConfigured) {
+            return installTransition;
+        }
+
+        if (shouldOnboard) {
+            return this.router.transitionTo('onboard');
+        }
+
         this.session.prohibitAuthentication('console');
         return this.universe.virtualRouteRedirect(transition, 'auth:login', 'virtual', { restoreQueryParams: true });
     }

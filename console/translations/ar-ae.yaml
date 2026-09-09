@@ -587,6 +587,18 @@ auth:
         help-text: أدخل كلمة مرور لا تقل عن 6 أحرف للمتابعة.
       submit-button: إعادة تعيين كلمة المرور
       back-button: عودة
+  confirm-email-change:
+    success-message: Your email address has been updated.
+    invalid-verification-code: This email change link is invalid or expired.
+    title: Confirm email change
+    message-text: Confirm this change to update the login email for your Fleetbase account.
+    form:
+      code:
+        label: Confirmation code
+        help-text: The confirmation code from your email.
+      submit-button: Confirm Email Change
+      back-button: Back
+
 console:
   create-or-join-organization:
     modal-title: إنشاء أو الانضمام إلى منظمة
@@ -737,10 +749,11 @@ onboard:
       resend-email: إعادة إرسال البريد الإلكتروني
       send-by-sms: الإرسال عبر الرسائل النصية
 install:
-  installer-header: المثبت
-  failed-message-sent: فشل التثبيت! اضغط الزر أدناه لإعادة محاولة التثبيت.
-  retry-install: إعادة محاولة التثبيت
-  start-install: بدء التثبيت
+  not-configured-title: Fleetbase is not installed or configured
+  not-configured-message: Complete setup from the Fleetbase CLI or application container, then reload this page once the database, migrations, and seed data are ready.
+  running-locally-docs: See running locally docs
+  cloud-docs: See cloud deployment docs
+  refreshing: Installation complete, refreshing...
 layout:
   header:
     menus:

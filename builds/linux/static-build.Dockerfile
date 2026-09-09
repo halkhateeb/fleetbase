@@ -1,10 +1,11 @@
-# FROM --platform=linux/amd64 dunglas/frankenphp:static-builder
-FROM --platform=linux/amd64 docker.io/dunglas/frankenphp:static-builder@sha256:821526b776a26502735d83890cc0a0d579348c510ba6c777df0762cb1c50d967
+# FROM --platform=${FLEETBASE_BUILD_PLATFORM} dunglas/frankenphp:static-builder
+ARG FLEETBASE_BUILD_PLATFORM=linux/amd64
+FROM --platform=${FLEETBASE_BUILD_PLATFORM} docker.io/dunglas/frankenphp:static-builder@sha256:821526b776a26502735d83890cc0a0d579348c510ba6c777df0762cb1c50d967
 
 WORKDIR /go/src/app
 
 # Copy Fleetbase app
-COPY ../../api ./dist/app
+COPY api ./dist/app
 
 # Set working directory to the embedded Fleetbase app
 WORKDIR /go/src/app/dist/app
@@ -25,8 +26,8 @@ RUN chmod +x ./deploy.sh
 # Move back to main app directory before running build-static.sh
 WORKDIR /go/src/app
 
-# Install geos lib
-RUN apk add --no-cache geos geos-dev
+# Install native libraries and headers required by SPC doctor/build.
+RUN apk add --no-cache geos geos-dev gettext-dev
 
 # Inject the libgeos library handlers
 COPY ./builds/linux/spc/libgeos-linux.php ./dist/static-php-cli/src/SPC/builder/linux/library/libgeos.php
@@ -69,8 +70,16 @@ ENV SPC_LOG_LEVEL=debug
 # Skip compression
 ENV NO_COMPRESS=1
 
+# GitHub-hosted Linux runners are memory constrained for this full source build.
+ENV SPC_CONCURRENCY=2
+
 # set PHP version
 ENV PHP_VERSION=8.2
+
+# Pin Caddy to the newest release compatible with the pinned FrankenPHP static
+# builder image's Go 1.24.1 toolchain. Unpinned xcaddy resolves latest, and
+# Caddy >= 2.10.2 now requires Go 1.25+.
+ENV CADDY_VERSION=v2.10.0
 
 # Move to the app directory
 WORKDIR /go/src/app
@@ -88,6 +97,31 @@ RUN apk add --no-cache build-base && \
 
 # Do not run git pull
 RUN sed -i 's/^[ \t]*git pull/# git pull/' ./build-static.sh
+RUN sed -i 's/[[:space:]]--prefer-pre-built//g' ./build-static.sh
+RUN grep -Fq '${XCADDY_COMMAND} build \' ./build-static.sh && \
+    awk 'index($0, "${XCADDY_COMMAND} build \\") { print "\t${XCADDY_COMMAND} build \"${CADDY_VERSION}\" \\"; patched=1; next } { print } END { exit patched ? 0 : 1 }' ./build-static.sh > ./build-static.sh.tmp && \
+    mv ./build-static.sh.tmp ./build-static.sh && \
+    grep -Fq '${XCADDY_COMMAND} build "${CADDY_VERSION}" \' ./build-static.sh
 
-# Build the FrankenPHP static binary
-RUN EMBED=dist/app ./build-static.sh
+# Stabilize SPC/curl downloads on networks where HTTP/2 streams are reset.
+RUN printf '%s\n' \
+      'http1.1' \
+      'retry = 5' \
+      'retry-delay = 5' \
+      'retry-all-errors' \
+      'connect-timeout = 30' \
+      'max-time = 300' \
+      'speed-limit = 1024' \
+      'speed-time = 60' \
+    > /root/.curlrc
+
+# Build the FrankenPHP static binary. SPC downloads can fail transiently, so
+# retry the final build step without hiding the eventual failure.
+RUN for attempt in 1 2 3 4 5; do \
+      rm -f dist/cache_key; \
+      EMBED=dist/app ./build-static.sh && exit 0; \
+      echo "FrankenPHP static build attempt ${attempt} failed." >&2; \
+      rm -f dist/cache_key; \
+      if [ "$attempt" -lt 5 ]; then sleep "$((attempt * 15))"; fi; \
+    done; \
+    exit 1

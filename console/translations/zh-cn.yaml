@@ -570,6 +570,18 @@ auth:
         help-text: 请输入至少6个字符的密码以继续。
       submit-button: 重置密码
       back-button: 返回
+  confirm-email-change:
+    success-message: Your email address has been updated.
+    invalid-verification-code: This email change link is invalid or expired.
+    title: Confirm email change
+    message-text: Confirm this change to update the login email for your Fleetbase account.
+    form:
+      code:
+        label: Confirmation code
+        help-text: The confirmation code from your email.
+      submit-button: Confirm Email Change
+      back-button: Back
+
 console:
   create-or-join-organization:
     modal-title: 创建或加入组织
@@ -717,10 +729,11 @@ onboard:
       resend-email: 重新发送邮件
       send-by-sms: 通过短信发送
 install:
-  installer-header: 安装程序
-  failed-message-sent: 安装失败！点击下面的按钮重试安装。
-  retry-install: 重试安装
-  start-install: 开始安装
+  not-configured-title: Fleetbase is not installed or configured
+  not-configured-message: Complete setup from the Fleetbase CLI or application container, then reload this page once the database, migrations, and seed data are ready.
+  running-locally-docs: See running locally docs
+  cloud-docs: See cloud deployment docs
+  refreshing: Installation complete, refreshing...
 layout:
   header:
     menus:

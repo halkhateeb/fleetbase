@@ -1,14 +1,12 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-import { later, next } from '@ember/runloop';
-import { not } from '@ember/object/computed';
+import { next } from '@ember/runloop';
 import { task } from 'ember-concurrency';
 
 export default class OnboardingVerifyEmailComponent extends Component {
     @service('session') authSession;
-    @service('user-verification') verification;
+    @service('onboarding-verification') verification;
     @service fetch;
     @service notifications;
     @service router;
@@ -26,7 +24,7 @@ export default class OnboardingVerifyEmailComponent extends Component {
         this.code = this.urlSearchParams.get('code');
         this.session = this.args.context.get('session') ?? this.urlSearchParams.get('session');
         this.initialized = true;
-        this.verification.start();
+        this.verification.start({ session: this.session });
     }
 
     @task *verify(event) {

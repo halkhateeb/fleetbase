@@ -1,6 +1,6 @@
 {
     "name": "@fleetbase/console",
-    "version": "0.7.26",
+    "version": "0.7.59",
     "private": true,
     "description": "Modular logistics and supply chain operating system (LSOS)",
     "repository": "https://github.com/fleetbase/fleetbase",
@@ -24,7 +24,9 @@
         "start": "ember serve",
         "start:dev": "ember serve --environment development",
         "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-        "test:ember": "ember test"
+        "test:ember": "ember test",
+        "test:ember:coverage": "COVERAGE=true ember test",
+        "coverage:check": "node scripts/coverage-check.mjs"
     },
     "ember-addon": {
         "paths": [
@@ -33,15 +35,20 @@
     },
     "dependencies": {
         "@ember/legacy-built-in-components": "^0.4.2",
-        "@fleetbase/dev-engine": "^0.2.12",
-        "@fleetbase/ember-core": "^0.3.10",
-        "@fleetbase/ember-ui": "^0.3.18",
-        "@fleetbase/fleetops-data": "^0.1.25",
-        "@fleetbase/fleetops-engine": "^0.6.33",
-        "@fleetbase/iam-engine": "^0.1.6",
+        "@fleetbase/ai-engine": "^0.0.4",
+        "@fleetbase/customer-portal-engine": "^0.0.13",
+        "@fleetbase/dev-engine": "^0.2.15",
+        "@fleetbase/ember-core": "^0.3.24",
+        "@fleetbase/ember-ui": "^0.4.0",
+        "@fleetbase/fleetops-data": "^0.2.0",
+        "@fleetbase/fleetops-engine": "^0.6.65",
+        "@fleetbase/iam-engine": "^0.1.11",
         "@fleetbase/leaflet-routing-machine": "^3.2.17",
-        "@fleetbase/registry-bridge-engine": "^0.1.3",
-        "@fleetbase/storefront-engine": "^0.4.12",
+        "@fleetbase/ledger-engine": "^0.0.10",
+        "@fleetbase/registry-bridge-engine": "^0.1.9",
+        "@fleetbase/storefront-engine": "^0.4.21",
+        "@fleetbase/valhalla-engine": "^0.0.4",
+        "@fleetbase/vroom-engine": "^0.0.4",
         "@formatjs/intl-datetimeformat": "^6.18.2",
         "@formatjs/intl-numberformat": "^8.15.6",
         "@formatjs/intl-pluralrules": "^5.4.6",
@@ -92,6 +99,7 @@
         "ember-cli-app-version": "^6.0.1",
         "ember-cli-babel": "^8.2.0",
         "ember-cli-clean-css": "^3.0.0",
+        "ember-cli-code-coverage": "^2.0.3",
         "ember-cli-dependency-checker": "^3.3.2",
         "ember-cli-deprecation-workflow": "^4.0.0",
         "ember-cli-dotenv": "^3.1.0",
@@ -112,6 +120,7 @@
         "ember-responsive": "^5.0.0",
         "ember-source": "~5.4.1",
         "ember-template-lint": "^5.13.0",
+        "ember-window-mock": "^0.9.0",
         "ember-wormhole": "^0.6.0",
         "eslint": "^8.57.0",
         "eslint-config-prettier": "^9.1.0",
@@ -143,17 +152,10 @@
         "webpack": "^5.98.0"
     },
     "engines": {
-        "node": ">= 18"
+        "node": ">= 22"
     },
     "ember": {
         "edition": "octane"
-    },
-    "pnpm": {
-        "overrides": {
-            "@fleetbase/ember-core": "^0.3.10",
-            "@fleetbase/ember-ui": "^0.3.18",
-            "@fleetbase/fleetops-data": "^0.1.24"
-        }
     },
     "prettier": {
         "trailingComma": "es5",
@@ -170,5 +172,5 @@
             }
         ]
     },
-    "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
+    "packageManager": "pnpm@11.0.9"
 }

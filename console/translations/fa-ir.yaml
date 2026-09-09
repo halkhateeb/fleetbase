@@ -577,6 +577,18 @@ auth:
         help-text: برای ادامه، رمزی با حداقل 6 کاراکتر وارد کنید
       submit-button: بازنشانی رمز عبور
       back-button: بازگشت
+  confirm-email-change:
+    success-message: Your email address has been updated.
+    invalid-verification-code: This email change link is invalid or expired.
+    title: Confirm email change
+    message-text: Confirm this change to update the login email for your Fleetbase account.
+    form:
+      code:
+        label: Confirmation code
+        help-text: The confirmation code from your email.
+      submit-button: Confirm Email Change
+      back-button: Back
+
 console:
   create-or-join-organization:
     modal-title: ایجاد یا پیوستن به یک سازمان
@@ -724,10 +736,11 @@ onboard:
       resend-email: ارسال مجدد ایمیل
       send-by-sms: ارسال از طریق پیامک
 install:
-  installer-header: نصب‌کننده
-  failed-message-sent: نصب ناموفق بود! برای تلاش مجدد روی دکمه زیر کلیک کنید
-  retry-install: تلاش مجدد برای نصب
-  start-install: شروع نصب
+  not-configured-title: Fleetbase is not installed or configured
+  not-configured-message: Complete setup from the Fleetbase CLI or application container, then reload this page once the database, migrations, and seed data are ready.
+  running-locally-docs: See running locally docs
+  cloud-docs: See cloud deployment docs
+  refreshing: Installation complete, refreshing...
 layout:
   header:
     menus:

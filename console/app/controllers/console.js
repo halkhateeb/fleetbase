@@ -6,6 +6,7 @@ import { action } from '@ember/object';
 import { isArray } from '@ember/array';
 import { dasherize } from '@ember/string';
 import first from '@fleetbase/ember-core/utils/first';
+import window from 'ember-window-mock';
 
 export default class ConsoleController extends Controller {
     @service currentUser;
@@ -17,79 +18,13 @@ export default class ConsoleController extends Controller {
     @service intl;
     @service universe;
     @service abilities;
-    @service sidebar;
     @tracked organizations = [];
-    @tracked sidebarContext;
-    @tracked sidebarToggleState = {};
-    @tracked hiddenSidebarRoutes = ['console.home', 'console.notifications', 'console.virtual'];
     @tracked menuItems = [];
     @tracked userMenuItems = [];
     @tracked organizationMenuItems = [];
 
     get currentRouteClass() {
         return dasherize(this.router.currentRouteName.replace(/\./g, ' '));
-    }
-
-    constructor() {
-        super(...arguments);
-        this.router.on('routeDidChange', (transition) => {
-            if (this.sidebarContext) {
-                // Determine if the new route should hide the sidebar
-                const shouldHideSidebar = this.hiddenSidebarRoutes.includes(transition.to.name);
-
-                // Check if the sidebar was manually toggled and is currently closed
-                const isSidebarManuallyClosed = this.sidebarToggleState.clicked && !this.sidebarToggleState.isOpen;
-
-                // Hide the sidebar if the current route is in hiddenSidebarRoutes
-                if (shouldHideSidebar) {
-                    this.sidebar.hideNow();
-                    this.sidebarToggleEnabled = false;
-                    return; // Exit early as no further action is required
-                }
-
-                // If the sidebar was manually closed and not on a hidden route, keep it closed
-                if (isSidebarManuallyClosed) {
-                    this.sidebar.hideNow();
-                } else {
-                    // Otherwise, show the sidebar
-                    this.sidebar.show();
-                }
-
-                // Ensure toggle is enabled unless on a hidden route
-                this.sidebarToggleEnabled = !shouldHideSidebar;
-            }
-        });
-    }
-
-    /**
-     * When sidebar is manually toggled
-     *
-     * @param {SidebarContext} sidebar
-     * @param {boolean} isOpen
-     * @memberof ConsoleController
-     */
-    @action onSidebarToggle(sidebar, isOpen) {
-        this.sidebarToggleState = {
-            clicked: true,
-            isOpen,
-        };
-    }
-
-    /**
-     * Sets the sidebar context
-     *
-     * @param {SidebarContext} sidebarContext
-     * @memberof ConsoleController
-     */
-    @action setSidebarContext(sidebarContext) {
-        this.sidebarContext = sidebarContext;
-        this.universe.sidebarContext = sidebarContext;
-        this.universe.trigger('sidebarContext.available', sidebarContext);
-
-        if (this.hiddenSidebarRoutes.includes(this.router.currentRouteName)) {
-            this.sidebar.hideNow();
-            this.sidebarToggleEnabled = false;
-        }
     }
 
     /**
@@ -119,8 +54,9 @@ export default class ConsoleController extends Controller {
      * @void
      */
     @action createOrJoinOrg() {
-        const currency = this.currentUser.currency;
-        const country = this.currentUser.country;
+        const currency = this.currentUser.company?.currency ?? this.currentUser.currency ?? 'USD';
+        const country = this.currentUser.company?.country ?? this.currentUser.country;
+        const timezone = this.currentUser.company?.timezone ?? this.currentUser.whois('timezone');
 
         this.modalsManager.show('modals/create-or-join-org', {
             title: this.intl.t('console.create-or-join-organization.modal-title'),
@@ -134,7 +70,7 @@ export default class ConsoleController extends Controller {
             phone: null,
             currency,
             country,
-            timezone: null,
+            timezone,
             changeAction: (action) => {
                 this.modalsManager.setOption('action', action);
             },

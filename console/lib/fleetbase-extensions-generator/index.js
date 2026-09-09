@@ -35,7 +35,7 @@ module.exports = {
 `;
     },
 
-    included(app) {
+    included() {
         this._super.included.apply(this, arguments);
 
         console.log('\n' + '/'.repeat(70));
@@ -59,27 +59,24 @@ module.exports = {
 
         const extensions = await this.getExtensions();
 
-        if (extensions.length === 0) {
-            console.log('[Fleetbase] No extensions found');
-            return;
+        if (extensions.length > 0) {
+            console.log(`[Fleetbase] Discovered ${extensions.length} extension(s)`);
+            extensions.forEach((ext) => {
+                console.log(`[Fleetbase]   - ${ext.name} (v${ext.version})`);
+            });
+            console.log('');
+
+            // Generate extension shims (only needed when extensions are present)
+            this.generateExtensionShims(extensions);
+        } else {
+            console.log('[Fleetbase] No extensions found — generating empty extension loader to satisfy module dependencies.');
         }
 
-        console.log(`[Fleetbase] Discovered ${extensions.length} extension(s)`);
-        extensions.forEach((ext) => {
-            console.log(`[Fleetbase]   - ${ext.name} (v${ext.version})`);
-        });
-        console.log('');
-
-        // Generate extension shims
-        this.generateExtensionShims(extensions);
-
-        // Generate extension loaders
+        // Always generate loaders, router, and manifest so that
+        // @fleetbase/console/extensions (app/extensions/index.js) always exists
+        // and the build does not fail when zero extensions are installed.
         this.generateExtensionLoaders(extensions);
-
-        // Generate router
         this.generateRouter(extensions);
-
-        // Generate manifest
         this.generateExtensionsManifest(extensions);
     },
 
@@ -227,7 +224,13 @@ export default getExtensionLoader;
 
         recast.visit(ast, {
             visitCallExpression(path) {
-                if (path.value.type === 'CallExpression' && path.value.callee.property.name === 'route' && path.value.arguments[0].value === 'console') {
+                if (
+                    path.value.type === 'CallExpression' &&
+                    path.value.callee.property &&
+                    path.value.callee.property.name === 'route' &&
+                    path.value.arguments[0] &&
+                    path.value.arguments[0].value === 'console'
+                ) {
                     let functionExpression;
 
                     // Find the function expression
@@ -270,7 +273,7 @@ export default getExtensionLoader;
                     }
                 }
 
-                if (path.value.type === 'CallExpression' && path.value.callee.property.name === 'map') {
+                if (path.value.type === 'CallExpression' && path.value.callee.property && path.value.callee.property.name === 'map') {
                     let functionExpression;
 
                     path.value.arguments.forEach((arg) => {
@@ -293,17 +296,34 @@ export default getExtensionLoader;
                             });
 
                             if (!isMounted) {
-                                functionExpression.body.body.push(
-                                    builders.expressionStatement(
-                                        builders.callExpression(builders.memberExpression(builders.thisExpression(), builders.identifier('mount')), [
-                                            builders.literal(extension.name),
-                                            builders.objectExpression([
-                                                builders.property('init', builders.identifier('as'), builders.literal(route)),
-                                                builders.property('init', builders.identifier('path'), builders.literal(route)),
-                                            ]),
-                                        ])
-                                    )
+                                const mountExpression = builders.expressionStatement(
+                                    builders.callExpression(builders.memberExpression(builders.thisExpression(), builders.identifier('mount')), [
+                                        builders.literal(extension.name),
+                                        builders.objectExpression([
+                                            builders.property('init', builders.identifier('as'), builders.literal(route)),
+                                            builders.property('init', builders.identifier('path'), builders.literal(route)),
+                                        ]),
+                                    ])
                                 );
+
+                                const catchRouteIndex = functionExpression.body.body.findIndex((expressionStatement) => {
+                                    const expression = expressionStatement.expression;
+
+                                    return (
+                                        expression &&
+                                        expression.type === 'CallExpression' &&
+                                        expression.callee.property &&
+                                        expression.callee.property.name === 'route' &&
+                                        expression.arguments[0] &&
+                                        expression.arguments[0].value === 'catch'
+                                    );
+                                });
+
+                                if (catchRouteIndex === -1) {
+                                    functionExpression.body.body.push(mountExpression);
+                                } else {
+                                    functionExpression.body.body.splice(catchRouteIndex, 0, mountExpression);
+                                }
                             }
                         });
                     }
