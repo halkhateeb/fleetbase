@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87ccd581a406b155afb93ba8dc47cbaa",
+    "content-hash": "cb66989b421ce3fcd5b2d4cd8ac4b228",
     "packages": [
         {
             "name": "appstract/laravel-opcache",
@@ -124,16 +124,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.394.3",
+            "version": "3.394.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d015718cd1becf0be9f75a1e72a7401453de4f3c"
+                "reference": "3b7cbf17b8ba568f77546d1e5edd3f2071861c8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d015718cd1becf0be9f75a1e72a7401453de4f3c",
-                "reference": "d015718cd1becf0be9f75a1e72a7401453de4f3c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3b7cbf17b8ba568f77546d1e5edd3f2071861c8f",
+                "reference": "3b7cbf17b8ba568f77546d1e5edd3f2071861c8f",
                 "shasum": ""
             },
             "require": {
@@ -215,9 +215,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.394.3"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.394.10"
             },
-            "time": "2026-08-28T18:18:55+00:00"
+            "time": "2026-09-08T18:07:43+00:00"
         },
         {
             "name": "aws/aws-sdk-php-laravel",
@@ -687,16 +687,16 @@
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CarbonPHP/carbon-doctrine-types.git",
-                "reference": "99f76ffa36cce3b70a4a6abce41dba15ca2e84cb"
+                "reference": "bf72f821b9952722ea9f9c3912f85946e1af9e3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CarbonPHP/carbon-doctrine-types/zipball/99f76ffa36cce3b70a4a6abce41dba15ca2e84cb",
-                "reference": "99f76ffa36cce3b70a4a6abce41dba15ca2e84cb",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon-doctrine-types/zipball/bf72f821b9952722ea9f9c3912f85946e1af9e3d",
+                "reference": "bf72f821b9952722ea9f9c3912f85946e1af9e3d",
                 "shasum": ""
             },
             "require": {
@@ -736,7 +736,7 @@
             ],
             "support": {
                 "issues": "https://github.com/CarbonPHP/carbon-doctrine-types/issues",
-                "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/2.1.0"
+                "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/2.1.1"
             },
             "funding": [
                 {
@@ -752,7 +752,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-11T17:09:12+00:00"
+            "time": "2026-09-06T14:11:23+00:00"
         },
         {
             "name": "cknow/laravel-money",
@@ -2310,16 +2310,16 @@
         },
         {
             "name": "fleetbase/core-api",
-            "version": "1.6.60",
+            "version": "1.6.61",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fleetbase/core-api.git",
-                "reference": "b7691c06ffdfe8f8874352e746aa8e523d5e3531"
+                "reference": "4c763ce293d2e794f9260aca11fb4b52413a74ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fleetbase/core-api/zipball/b7691c06ffdfe8f8874352e746aa8e523d5e3531",
-                "reference": "b7691c06ffdfe8f8874352e746aa8e523d5e3531",
+                "url": "https://api.github.com/repos/fleetbase/core-api/zipball/4c763ce293d2e794f9260aca11fb4b52413a74ac",
+                "reference": "4c763ce293d2e794f9260aca11fb4b52413a74ac",
                 "shasum": ""
             },
             "require": {
@@ -2412,9 +2412,9 @@
             ],
             "support": {
                 "issues": "https://github.com/fleetbase/core-api/issues",
-                "source": "https://github.com/fleetbase/core-api/tree/v1.6.60"
+                "source": "https://github.com/fleetbase/core-api/tree/v1.6.61"
             },
-            "time": "2026-08-31T09:30:00+00:00"
+            "time": "2026-09-09T05:07:03+00:00"
         },
         {
             "name": "fleetbase/countries",
@@ -2552,16 +2552,16 @@
         },
         {
             "name": "fleetbase/fleetops-api",
-            "version": "0.6.64",
+            "version": "0.6.65",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fleetbase/fleetops.git",
-                "reference": "4008beafe7274555de088738d44e2fb33fd2908c"
+                "reference": "2980fb39cd4ff58442d287907849efea3a2805ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fleetbase/fleetops/zipball/4008beafe7274555de088738d44e2fb33fd2908c",
-                "reference": "4008beafe7274555de088738d44e2fb33fd2908c",
+                "url": "https://api.github.com/repos/fleetbase/fleetops/zipball/2980fb39cd4ff58442d287907849efea3a2805ba",
+                "reference": "2980fb39cd4ff58442d287907849efea3a2805ba",
                 "shasum": ""
             },
             "require": {
@@ -2638,9 +2638,9 @@
             ],
             "support": {
                 "issues": "https://github.com/fleetbase/fleetops/issues",
-                "source": "https://github.com/fleetbase/fleetops/tree/v0.6.64"
+                "source": "https://github.com/fleetbase/fleetops/tree/v0.6.65"
             },
-            "time": "2026-09-07T12:06:12+00:00"
+            "time": "2026-09-09T04:39:09+00:00"
         },
         {
             "name": "fleetbase/laravel-mysql-spatial",
@@ -3829,16 +3829,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.457.0",
+            "version": "v0.458.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "d6ad056c8d6683c035a5d4e2c6dd77247150ccc1"
+                "reference": "1bf817c792a3c2112f93d785d1a891510f7366c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/d6ad056c8d6683c035a5d4e2c6dd77247150ccc1",
-                "reference": "d6ad056c8d6683c035a5d4e2c6dd77247150ccc1",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/1bf817c792a3c2112f93d785d1a891510f7366c9",
+                "reference": "1bf817c792a3c2112f93d785d1a891510f7366c9",
                 "shasum": ""
             },
             "require": {
@@ -3867,9 +3867,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.457.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.458.0"
             },
-            "time": "2026-08-31T01:26:27+00:00"
+            "time": "2026-09-07T01:24:24+00:00"
         },
         {
             "name": "google/auth",
@@ -6927,16 +6927,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.35.3",
+            "version": "3.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "5fc8404762179ae514678487b23494fd69b2309c"
+                "reference": "f7fb152932f30072d573510cbd4dd657d6475b25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/5fc8404762179ae514678487b23494fd69b2309c",
-                "reference": "5fc8404762179ae514678487b23494fd69b2309c",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f7fb152932f30072d573510cbd4dd657d6475b25",
+                "reference": "f7fb152932f30072d573510cbd4dd657d6475b25",
                 "shasum": ""
             },
             "require": {
@@ -7004,9 +7004,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.35.3"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.36.0"
             },
-            "time": "2026-08-22T12:55:54+00:00"
+            "time": "2026-09-02T08:00:27+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -12260,16 +12260,16 @@
         },
         {
             "name": "spomky-labs/pki-framework",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spomky-Labs/pki-framework.git",
-                "reference": "5d630ec371652229ad568337519f16e539e5f79d"
+                "reference": "8f333bebe104ea24f1a160a6fb69e2dead4f1882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/pki-framework/zipball/5d630ec371652229ad568337519f16e539e5f79d",
-                "reference": "5d630ec371652229ad568337519f16e539e5f79d",
+                "url": "https://api.github.com/repos/Spomky-Labs/pki-framework/zipball/8f333bebe104ea24f1a160a6fb69e2dead4f1882",
+                "reference": "8f333bebe104ea24f1a160a6fb69e2dead4f1882",
                 "shasum": ""
             },
             "require": {
@@ -12298,7 +12298,8 @@
             "suggest": {
                 "ext-bcmath": "For better performance (or GMP)",
                 "ext-gmp": "For better performance (or BCMath)",
-                "ext-openssl": "For OpenSSL based cyphering"
+                "ext-openssl": "For OpenSSL based cyphering",
+                "ext-sodium": "To verify Ed25519 signatures where the OpenSSL extension has no EdDSA"
             },
             "type": "library",
             "autoload": {
@@ -12353,7 +12354,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Spomky-Labs/pki-framework/issues",
-                "source": "https://github.com/Spomky-Labs/pki-framework/tree/1.6.1"
+                "source": "https://github.com/Spomky-Labs/pki-framework/tree/1.6.2"
             },
             "funding": [
                 {
@@ -12365,7 +12366,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2026-08-30T13:53:49+00:00"
+            "time": "2026-09-08T07:15:08+00:00"
         },
         {
             "name": "sqids/sqids",
